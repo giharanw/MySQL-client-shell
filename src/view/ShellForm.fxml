@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShellFormController">
+   <children>
+      <Label layoutX="26.0" layoutY="28.0" text="Command">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="184.0" text="Output/Result">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtCommand" layoutX="14.0" layoutY="57.0" prefHeight="82.0" prefWidth="571.0" />
+      <TextArea fx:id="txtOutput" editable="false" layoutX="15.0" layoutY="213.0" prefHeight="177.0" prefWidth="571.0" />
+      <Button fx:id="btnExecute" layoutX="488.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnExecuteOnAction" prefHeight="26.0" prefWidth="97.0" text="Execute" />
+
+   </children>
+</AnchorPane>

@@ -1,10 +1,16 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -79,11 +85,18 @@ public class LoginFormController {
                 alert.setTitle("Connection failure");
                 alert.setHeaderText("Can't establish the connection");
                 alert.setContentText(new String(buffer));
-                alert.getDialogPane();
+                alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+                alert.show();
+
                 txtUsername.requestFocus();
                 txtUsername.selectAll();
             }else{
-                System.out.println("Wade Goda!");
+                AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/ShellForm.fxml"));
+                Scene loginScene = new Scene(root);
+                Stage stage = (Stage) txtHost.getScene().getWindow();
+                stage.setScene(loginScene);
+                stage.setTitle("MySQL Client Shell");
+                Platform.runLater(() -> stage.sizeToScene());
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

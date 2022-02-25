@@ -59,9 +59,12 @@ public class LoginFormController {
             Process mysql = new ProcessBuilder("mysql",
                     "-h",txtHost.getText(),
                     "-u",txtUsername.getText(),
-                    "-p"+txtPassword.getText(),
+                    "-p",
                     "--port",txtPort.getText(),
                     "-e","exit").start();
+
+            mysql.getOutputStream().write(txtPassword.getText().getBytes());
+            mysql.getOutputStream().close();
 
             int exitCode = mysql.waitFor();
             if (exitCode !=0){
@@ -77,6 +80,7 @@ public class LoginFormController {
     }
     
     public void btnExitOnAction(ActionEvent event) {
+        System.exit(0);
     }
 
 }

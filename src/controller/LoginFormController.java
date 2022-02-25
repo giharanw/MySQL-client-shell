@@ -36,14 +36,41 @@ public class LoginFormController {
             return;
         }
 
-        String command = String.format("mysql -h %s -u %s -p%s --port %s",
+        try {
+
+            /*
+            String command = String.format("mysql -h %s -u %s -p%s --port %s -e exit",
                 txtHost.getText(),
                 txtUsername.getText(),
                 txtPassword.getText(),
                 txtPort.getText());
-        try {
+                */
+
+            /* String[] command = { "mysql",
+                    "-h",txtHost.getText(),
+                    "-u",txtUsername.getText(),
+                    "-p"+txtPassword.getText(),
+                    "--port",txtPort.getText(),
+                    "-e","exit"
+            };
             Process mysql = Runtime.getRuntime().exec(command);
-            System.out.println(mysql.waitFor());
+            */
+
+            Process mysql = new ProcessBuilder("mysql",
+                    "-h",txtHost.getText(),
+                    "-u",txtUsername.getText(),
+                    "-p"+txtPassword.getText(),
+                    "--port",txtPort.getText(),
+                    "-e","exit").start();
+
+            int exitCode = mysql.waitFor();
+            if (exitCode !=0){
+                new Alert(Alert.AlertType.ERROR, "Can't establish the connection, try again").show();
+                txtUsername.requestFocus();
+                txtUsername.selectAll();
+            }else{
+                System.out.println("Wade Goda!");
+            }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

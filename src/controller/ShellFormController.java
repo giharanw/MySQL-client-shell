@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public class ShellFormController {
     public TextArea txtCommand;
@@ -14,9 +15,25 @@ public class ShellFormController {
     private Process mysql;
 
     public void btnExecuteOnAction(ActionEvent actionEvent) {
+        String statement = txtCommand.getText();
+        if (!txtCommand.getText().endsWith(";")){
+            statement += ";";
+        }
+        try {
+            System.out.println(mysql.isAlive());
+            mysql.getOutputStream().write(statement.getBytes());
+            mysql.getOutputStream().flush();
+
+            InputStream is = mysql.getErrorStream();
+            byte[] buffer = new byte[1024];
+            System.out.println(is.read(buffer));
+            txtOutput.setText(new String(buffer));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void initdata(String host, String port, String userName, String password) {
+    public void initData(String host, String port, String userName, String password) {
         try{
             mysql = new ProcessBuilder("mysql","-h",host,"--port",port,"-u",userName,"-p").start();
             mysql.getOutputStream().write(password.getBytes());

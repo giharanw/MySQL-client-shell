@@ -97,7 +97,7 @@ public class LoginFormController {
                 Stage stage = (Stage) txtHost.getScene().getWindow();
                 stage.setScene(shellScene);
                 ShellFormController controller = fxmlLoader.getController();
-                controller.initdata(txtHost.getText(),txtPort.getText(),txtUsername.getText(),txtPassword.getText());
+                controller.initData(txtHost.getText(),txtPort.getText(),txtUsername.getText(),txtPassword.getText());
                 stage.setTitle("MySQL Client Shell");
                 Platform.runLater(() -> stage.sizeToScene());
             }

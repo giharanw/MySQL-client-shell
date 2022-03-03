@@ -7,43 +7,66 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="366.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+<AnchorPane prefHeight="397.0" prefWidth="639.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
    <children>
-      <Label layoutX="158.0" layoutY="23.0" text="MySQL Client Shell">
+      <Label layoutX="169.0" layoutY="21.0" text="MySQL Client Shell" textFill="WHITE">
          <font>
             <Font name="Ubuntu Mono Bold" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="282.0" layoutY="68.0" text="Login">
+      <Label layoutX="294.0" layoutY="67.0" text="Login" textFill="WHITE">
          <font>
             <Font name="Ubuntu Medium" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="127.0" text="Host">
+      <Label layoutX="74.0" layoutY="125.0" text="Host" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="Ubuntu Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtHost" layoutX="206.0" layoutY="123.0" prefHeight="26.0" prefWidth="353.0" text="localhost" />
-      <Label layoutX="74.0" layoutY="174.0" text="Port">
+      <TextField fx:id="txtHost" layoutX="206.0" layoutY="123.0" prefHeight="26.0" prefWidth="353.0" text="localhost">
          <font>
-            <Font size="16.0" />
+            <Font name="Ubuntu Light" size="13.0" />
+         </font></TextField>
+      <Label layoutX="74.0" layoutY="174.0" text="Port" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPort" layoutX="206.0" layoutY="170.0" prefHeight="26.0" prefWidth="353.0" text="3306" />
-      <Label layoutX="74.0" layoutY="217.0" text="Username">
+      <TextField fx:id="txtPort" layoutX="206.0" layoutY="170.0" prefHeight="26.0" prefWidth="353.0" text="3306">
          <font>
-            <Font size="16.0" />
+            <Font name="Ubuntu Light" size="13.0" />
+         </font></TextField>
+      <Label layoutX="74.0" layoutY="218.0" text="Username" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUsername" layoutX="206.0" layoutY="213.0" prefHeight="26.0" prefWidth="353.0" />
-      <Label layoutX="74.0" layoutY="266.0" text="Password">
+      <TextField fx:id="txtUsername" layoutX="206.0" layoutY="213.0" prefHeight="26.0" prefWidth="353.0">
          <font>
-            <Font size="16.0" />
+            <Font name="Ubuntu Light" size="13.0" />
+         </font></TextField>
+      <Label layoutX="74.0" layoutY="266.0" text="Password" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold" size="20.0" />
          </font>
       </Label>
-      <PasswordField fx:id="txtPassword" layoutX="206.0" layoutY="262.0" prefHeight="26.0" prefWidth="353.0" />
-      <Button fx:id="btnConnect" defaultButton="true" layoutX="242.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnConnectOnAction" text="Connect" />
-      <Button fx:id="btnExit" layoutX="331.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="26.0" prefWidth="72.0" text="Exit" />
+      <PasswordField fx:id="txtPassword" layoutX="206.0" layoutY="262.0" prefHeight="26.0" prefWidth="353.0">
+         <font>
+            <Font name="Ubuntu Light" size="13.0" />
+         </font></PasswordField>
+      <Button fx:id="btnConnect" defaultButton="true" layoutX="229.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnConnectOnAction" prefHeight="37.0" prefWidth="90.0" style="-fx-background-radius: 15;" text="Connect">
+         <font>
+            <Font name="Ubuntu" size="17.0" />
+         </font></Button>
+      <Button fx:id="btnExit" layoutX="343.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="37.0" prefWidth="90.0" style="-fx-background-radius: 15;" text="Exit">
+         <font>
+            <Font name="Ubuntu" size="17.0" />
+         </font></Button>
+      <Label layoutX="212.0" layoutY="369.0" text="Developed by Gihara Wickramatunge" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Medium" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

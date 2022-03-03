@@ -91,10 +91,13 @@ public class LoginFormController {
                 txtUsername.requestFocus();
                 txtUsername.selectAll();
             }else{
-                AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/ShellForm.fxml"));
-                Scene loginScene = new Scene(root);
+                FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/ShellForm.fxml"));
+                AnchorPane root = fxmlLoader.load();
+                Scene shellScene = new Scene(root);
                 Stage stage = (Stage) txtHost.getScene().getWindow();
-                stage.setScene(loginScene);
+                stage.setScene(shellScene);
+                ShellFormController controller = fxmlLoader.getController();
+                controller.initdata(txtHost.getText(),txtPort.getText(),txtUsername.getText(),txtPassword.getText());
                 stage.setTitle("MySQL Client Shell");
                 Platform.runLater(() -> stage.sizeToScene());
             }
